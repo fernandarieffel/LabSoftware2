@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Gudea');
+
+body {
+	font-family: 'Gudea', sans-serif;
+	color: #6E7072;
+	padding-top: 80px;
+}
+
+h1, h2, h3 {
+	font-family: 'Francois One', sans-serif;
+	text-transform: uppercase;
+}
+
+.navbar-default {
+	padding-top: 1px;
+	margin: 0px;
+}
+
+.nav.navbar-nav li a{
+	font-size: 18px;
+}
+
+.obrigatorio {
+	color: red;
+}
+
+.botao {
+	background-color: #6E7072;
+	border-color: #6E7072;
+	border-width: 2px;
+	color: white;
+	font-weight: bold;
+
+}
+.evento {
+	padding: 12px;
+	margin: 10px;
+}
+
+.titulo {
+	color: #359645;
+}
+
+.menu-side {
+	margin-top: 20px;
+}
+
+.ingressos {
+	padding: 20px;
+}
