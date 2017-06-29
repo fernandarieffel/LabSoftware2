@@ -19,6 +19,7 @@
   } else if (isset($_GET["operacao"])) {
     $operacao = $_GET["operacao"];
   }
+
   if ($operacao == "cadastrar_tipo_ingresso") {
     
     $ingresso = new TipoIngresso();
@@ -31,9 +32,32 @@
       $ingresso->detalhes = $_POST['detalhes'];
     }
 
-    echo $ingresso->id_evento, $ingresso->descricao, $ingresso->valor;
     $ingresso->inserir();
-    //echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos.php'>"; 
+
+    session_start();
+    $_SESSION['mensagem']='Ingresso cadastrado com sucesso!';
+    $_SESSION['local']='meus_eventos.php';         
+
+    echo "<meta http-equiv='refresh' content='0;url=../view/jquerymodal.php?numero=1'>";
+  }
+
+  else if ($operacao == "editar") {
+    
+    $ingresso = new TipoIngresso();
+
+    $ingresso->id = $_POST['id'];
+    $ingresso->descricao = $_POST['descricao'];
+    $ingresso->valor = $_POST['valor'];
+    $ingresso->vagas = $_POST['vagas'];
+    $ingresso->detalhes = $_POST['detalhes'];
+
+    $ingresso->editar();
+
+    session_start();
+    $_SESSION['mensagem']='Ingresso editado com sucesso!';
+    $_SESSION['local']='meus_eventos.php';         
+
+    //echo "<meta http-equiv='refresh' content='0;url=../view/jquerymodal.php?numero=1'>";
   }
 
 ?>

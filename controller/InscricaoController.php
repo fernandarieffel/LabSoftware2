@@ -24,16 +24,38 @@
   
     $inscricao = new Inscricao();
 
-    $ingresso = $_POST['id_tipo_ingresso'];
-    $inscricao->id_tipo_ingresso = $ingresso;
-    $inscricao->id_congressista = $_POST['id_usuario'];
+    $id_tipo_ingresso = $_POST['id_tipo_ingresso'];
+    $id_congressista = $_POST['id_usuario'];
+
+    $inscricao->id_tipo_ingresso = $id_tipo_ingresso;
+    $inscricao->id_congressista = $id_congressista;
 
     $inscricao->inserir();
 
     session_start();
     $_SESSION['mensagem']='Inscrição efetuada com sucesso! <br>Em, breve você receberá um email de confirmação.';
-    $_SESSION['local']='meus_eventos_congressista.php';  
-    echo "<meta http-equiv='refresh' content='0;url=../view/jquerymodal.php?numero=1'>"; 
+    $_SESSION['local']='meus_eventos_congressista.php';     
+
+    require_once("email.php");
+
+    $res = $inscricao->getDadosParaCongressista($id_tipo_ingresso, $id_congressista);
+
+    $li = mysqli_fetch_assoc($res);
+
+    $email_destino = $li['email'];
+    $assunto = $li['nome_evento'] . ' = Inscrição Efetuada';
+    $conteudoEmail = 
+      '<h1>Olá '.$li['nome_congressista'].',</h1> <br/>
+      <h2>Sua inscrição no evento <b>'.$li['nome_evento'].'</b> foi confirmada!</h2>';
+
+    if (smtpmailer($email_destino, 'fernandarieffel@gmail.com', 'Fernanda Rieffel', $assunto, $conteudoEmail)) {
+
+      echo "<meta http-equiv='refresh' content='0;url=../view/jquerymodal.php?numero=1'>"; 
+
+    }
+    if (!empty($error)) echo $error;
+
+    
   }
 
   else if ($operacao == "set_pagamento") {

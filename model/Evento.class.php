@@ -29,7 +29,7 @@
 		function listarByIdCongressista($id){
 			$bd = new ConexaoDB;
 			$bd->conectar();
-			return $bd->query("SELECT evento.id AS id, nome, dataRealizacao, local, tipo_ingresso.descricao AS descricao_tipo_ingresso, pagamento, presenca, imagem  FROM evento, inscricao, tipo_ingresso WHERE 
+			return $bd->query("SELECT evento.id AS id, nome, dataRealizacao, local, tipo_ingresso.descricao AS descricao_tipo_ingresso, tipo_ingresso.id AS id_tipo_ingresso, pagamento, presenca, imagem  FROM evento, inscricao, tipo_ingresso WHERE 
 				tipo_ingresso.id = inscricao.id_tipo_ingresso
 				AND tipo_ingresso.id_evento = evento.id
 				AND inscricao.id_congressista = '$id';");

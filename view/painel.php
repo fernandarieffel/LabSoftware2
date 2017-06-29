@@ -56,7 +56,8 @@
           <h2 class="titulo">Painel de Gerenciamento de Evento</h2>
           <h1><?php echo $nome_evento;?></h1>
 
-          <p><a class="btn btn-primary">Editar informações</a> <a href="cadastrar_tipo_ingresso.php?id_evento=<?php echo $id_evento?>&nome_evento=<?php echo $nome_evento?>" class="btn btn-success">Novo Ingresso</a></p>
+          <p><a class="btn btn-primary" href="editar_evento.php?id_evento=<?php echo $id_evento?>">Editar informações</a>
+           <a href="cadastrar_tipo_ingresso.php?id_evento=<?php echo $id_evento?>&nome_evento=<?php echo $nome_evento?>" class="btn btn-success">Novo Ingresso</a></p>
 
           <br>
 
@@ -99,7 +100,9 @@
                             <td>'.$vagas.'</td>
                             <td>'.$qtd_vendida.'</td>
                             <td>'.$restante.'</td>
-                            <td><a href="../view/editar_tipo_ingresso.php?id_tipo_ingresso='.$id.'" style="color: blue;"><i class="fa fa-edit" aria-hidden="true"></a></td>
+                            <td><a href="../view/editar_tipo_ingresso.php?id_evento='.$id_evento.'&nome_evento='.$nome_evento.'&id='.$id.'&descricao='.$descricao.'&valor='.$valor.'&vagas='.$vagas.'&detalhes='.$detalhes.'" style="color: blue;"><i class="fa fa-edit" aria-hidden="true"></a></td>
+                            
+
                             <td><a href="../controller/TipoIngressoController.php?operacao=excluir?id_tipo_ingresso='.$id.'" style="color: red;"><i class="fa fa-remove" aria-hidden="true"></a></td>
                           </tr>';
 

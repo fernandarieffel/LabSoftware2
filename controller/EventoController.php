@@ -27,7 +27,7 @@
     $evento->id_organizador = $_POST['id_organizador'];
     $evento->local = $_POST['local'];
     $evento->nome = $_POST['nome'];
-    $evento->dataRealizacao = $_POST['dataRealizacao']
+    $evento->dataRealizacao = $_POST['dataRealizacao'];
     $evento->cargaHoraria = $_POST['cargaHoraria'];
     $evento->periodoInscricao = $_POST['periodoInscricao'];
     
@@ -37,7 +37,7 @@
     //imagem
     $extensao = strtolower(substr($_FILES['imagem']['name'], -4));
     $novo_nome = md5(time()) . $extensao;
-    $diretorio = "../resorces/img/";
+    $diretorio = "../uploads/img/";
 
     move_uploaded_file($_FILES['imagem']['tmp_name'], $diretorio.$novo_nome);
 
@@ -46,6 +46,7 @@
     }
 
     $evento->inserir();
+    session_start();
     $_SESSION['mensagem']='Evento cadastrado com sucesso!';
     $_SESSION['local']='meus_eventos.php';         
 

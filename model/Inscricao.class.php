@@ -42,6 +42,19 @@
 			$bd->fechar();
 		}
 
+		function getDadosParaCongressista($id_tipo_ingresso, $id_congressista){
+			$bd = new ConexaoDB;
+			$bd->conectar();
+			return $bd->query("SELECT congressista.nome AS nome_congressista, congressista.email AS email, cpf, evento.nome AS nome_evento, dataRealizacao, cargaHoraria, local, tipo_ingresso.descricao 
+				FROM evento, inscricao, congressista, tipo_ingresso
+				WHERE inscricao.id_congressista = congressista.id
+				AND tipo_ingresso.id_evento = evento.id
+				AND inscricao.id_tipo_ingresso = tipo_ingresso.id
+				AND tipo_ingresso.id = '$id_tipo_ingresso'
+				AND congressista.id = '$id_congressista'");
+			$bd->fechar();
+		}
+
 		function verificaVagasDisponiveis($id_tipo_ingresso){
 			$bd = new ConexaoDB;
 			$bd->conectar();

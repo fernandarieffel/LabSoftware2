@@ -19,6 +19,7 @@
     <div class="col-md-12">
 
       <h1>Cadastrar Evento</h1><br>
+      <p>Os campos marcados com  <b class="obrigatorio">*</b>  são de preencimento obrigatório.</p> <br>
 
       <form role="form" method="post" action="../controller/EventoController.php" enctype="multipart/form-data">
 

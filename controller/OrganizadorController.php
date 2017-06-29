@@ -33,7 +33,8 @@
     $endereco = $_POST['endereco'];
     $numero = $_POST['numero'];
     $telefone = $_POST['telefone'];
-    if(isset($_POST['complemento']) {
+
+    if(isset($_POST['complemento'])) {
         $organizador->complemento = $_POST['complemento'];
     }
     $organizador->instituicao = $instituicao;

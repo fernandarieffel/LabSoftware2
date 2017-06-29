@@ -17,6 +17,14 @@
 			$bd->fechar();
 		}
 
+		function editar(){
+			$bd = new ConexaoDB;
+			$sql = "UPDATE tipo_ingresso SET (descricao, valor, vagas, detalhes) VALUES descricao='$this->descricao', valor='$this->valor', vagas='$this->vagas', detalhes='$this->detalhes' WHERE id='$this->id')";
+			$bd->conectar();
+			$bd->query($sql);
+			$bd->fechar();
+		}
+
 		function listar($id_evento){
 			$bd = new ConexaoDB;
 			$bd->conectar();

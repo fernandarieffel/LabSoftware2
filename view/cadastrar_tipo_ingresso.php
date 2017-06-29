@@ -21,7 +21,8 @@
         <div class="col-md-12">
 
             <h1>Cadastrar Ingresso</h1>
-            <h3><?php echo $_GET['nome_evento'];?></h3>
+            <h3><?php echo $_GET['nome_evento'];?></h3><br>
+          <p>Os campos marcados com  <b class="obrigatorio">*</b>  são de preencimento obrigatório.</p> <br>
 
           <form role="form" method="post" action="../controller/TipoIngressoController.php">
 

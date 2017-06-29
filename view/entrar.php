@@ -29,11 +29,11 @@
 
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="seu_email@mail.com">
+              <input type="email" name="email" class="form-control" id="email" placeholder="seu_email@mail.com" required>
             </div>
             <div class="form-group">
               <label for="senha">Senha</label>
-              <input type="password" name="senha" class="form-control" id="senha" placeholder="Informe sua senha">
+              <input type="password" name="senha" class="form-control" id="senha" placeholder="Informe sua senha" required>
             </div>
           
           <p><a href="#">Esqueceu sua senha?</a></p>
